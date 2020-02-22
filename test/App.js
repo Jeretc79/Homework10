@@ -11,14 +11,14 @@ const util = require("util");
 let writefileAsync = util.promisify(fs.writeFile);
 let readFileAsync = util.promisify(fs.readFile);
 let teamName;
-let objToHTML = []; //Array to store all the employee object to build html
-let i = 0; //for loop the array above
+let objToHTML = []; 
+let i = 0; 
 let member;
 
 
-//trigger the building
+
 init();
-function init() {  //for the question, check the questions.js
+function init() {  
     inquirer.prompt(questions.initQuestions).then(function (res) {
         if (res.start) buildTeamLead();
         else init();
@@ -32,13 +32,13 @@ function buildTeamLead() {
             teamName = data.teamName;
             let tempObj = new Manager(data.manager, data.managerID, data.managerEmail, data.managerOffice);
             objToHTML.push(tempObj);
-            buildStaff(); //back to pick staff catagory
+            buildStaff(); 
         }, function (error) {
             console.log(error);
         })
 }
 
-//Pick Staff Catagory to build for next
+
 function buildStaff() {
     inquirer.prompt(questions.pickStaffQuestions)
         .then(function (ans) {
@@ -58,7 +58,7 @@ function buildStaff() {
         })
 }
 
-//build Engineer//
+// Engineer//
 function buildEngineer() {
     inquirer.prompt(questions.engineerQuestions)
         .then(function (data) {
@@ -70,13 +70,13 @@ function buildEngineer() {
         })
 }
 
-//build Intern//
+//Intern//
 function buildIntern() {
     inquirer.prompt(questions.internQuestions)
         .then(function (data) {
             let tempObj = new Intern(data.intern, data.internID, data.internEmail, data.internSchool);
             objToHTML.push(tempObj);
-            buildStaff(); //back to pick staff catagory
+            buildStaff(); 
         }, function (error) {
             console.log(error);
         })
@@ -101,12 +101,12 @@ function buildHTML() {
 
 //Add team members to html//
 function addMemberHTML() {
-    if (i < objToHTML.length) { //loop the array to build team members to html
+    if (i < objToHTML.length) { 
         member = objToHTML[i++];
         if (member.getRole() === "Manager") addManager(member);
         else if (member.getRole() === "Engineer") addEngineer(member);
         else addIntern(member);
-    } else {   //ending loop above to output team html
+    } else {  
         let html = fs.readFileSync("./templates/main.html", "utf8");
         writefileAsync(`./output/${teamName}_Team.html`, html)
             .then(function () {
@@ -114,7 +114,7 @@ function addMemberHTML() {
                 readFileAsync("./templates/main.html", "utf8")
                 .then(async function (html) {
                     let $main = cheerio.load(html);
-                    $main("#addMember").html(""); //empty 
+                    $main("#addMember").html(""); 
                     writefileAsync("./templates/main.html", $main.html());
                 });
             }, function (error) {
@@ -123,7 +123,7 @@ function addMemberHTML() {
     }
 }
 
-//add Manager html//
+
 function addManager(member) {
     let html = fs.readFileSync("./templates/manager.html", "utf8");
     let $manager = cheerio.load(html);
