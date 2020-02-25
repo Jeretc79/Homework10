@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jeretc79/unit10hw.git"
+    "url": "git+https://github.com/Jeretc79/Homework10.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jeretc79/unit10hw/issues"
+    "url": "https://github.com/Jeretc79/Homework10/issues"
   },
-  "homepage": "https://github.com/Jeretc79/unit10hw#readme",
+  "homepage": "https://github.com/Jeretc79/Homework10#readme",
   "dependencies": {
     "inquirer": "^6.3.1"
   },
