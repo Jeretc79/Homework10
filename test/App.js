@@ -64,7 +64,7 @@ function buildEngineer() {
         .then(function (data) {
             let tempObj = new Engineer(data.engineer, data.engineerID, data.engineerEmail, data.engineerGithub);
             objToHTML.push(tempObj);
-            buildStaff();  //back to pick staff catagory
+            buildStaff();  
         }, function (error) {
             console.log(error);
         })
