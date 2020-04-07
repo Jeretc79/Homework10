@@ -1,0 +1,31 @@
+{
+    "name": "Homework10",
+    "version": "1.0.0",
+    "description": "OOP and testing for week 10 homework",
+    "main": "app.js",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "jest --verbose test/*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Jeretc79/Homework10.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Jeretc79/Homework10/issues"
+    },
+    "homepage": "https://github.com/Jeretc79/Homework10#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "inquirer": "^6.3.1",
+        "util": "^0.12.1"
+    },
+    "devDependencies": {
+        "jest": "^24.8.0"
+    }
+}
